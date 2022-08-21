@@ -23,7 +23,7 @@ class MainViewModel: ObservableObject {
                 self.error = "No data error"
                 return
             }
-            
+        
             do {
                 self.rocketResponseElement = try JSONDecoder().decode([RocketResponseElement].self, from: data)
             } catch(let error) {

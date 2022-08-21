@@ -11,7 +11,6 @@ protocol PageViewControllerDelegate: AnyObject {
     func setPagesIndicatorCount(_ count: Int) // передали кол-во страниц
 }
 
-
 class PageViewController: UIPageViewController {
     
     var rocketResponseElement: [RocketResponseElement]? {

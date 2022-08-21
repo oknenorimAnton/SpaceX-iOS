@@ -40,7 +40,6 @@ class StartingTableViewCell: UITableViewCell {
         return img
     }()
     
-
     func setupLayout() {
         
         addSubview(viewCell)
@@ -75,8 +74,6 @@ class StartingTableViewCell: UITableViewCell {
             make.width.equalTo(32)
             make.height.equalTo(32)
         }
-
-        
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -84,12 +81,11 @@ class StartingTableViewCell: UITableViewCell {
         setupLayout()
         backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         selectionStyle = .none
-        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-  
+    
 }
 

@@ -46,6 +46,5 @@ class MainBarView: UIView {
     required public init?(coder: NSCoder) {
         fatalError("Unsupported initializer, please use init()")
     }
-    
 }
 

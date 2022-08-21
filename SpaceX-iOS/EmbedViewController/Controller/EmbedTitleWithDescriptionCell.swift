@@ -10,7 +10,7 @@ class EmbedTitleWithDescriptionCell: UITableViewCell {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "LabGrotesque", size: 16)
+        label.font = UIFont.LabGrotesque().Regular(size: 16)
         return label
     }()
     
@@ -18,7 +18,7 @@ class EmbedTitleWithDescriptionCell: UITableViewCell {
         let label = UILabel()
         label.textAlignment = .right
         label.numberOfLines = 0
-        label.font = UIFont(name: "LabGrotesque", size: 16)
+        label.font = UIFont.LabGrotesque().Regular(size: 16)
         return label
     }()
     
@@ -59,5 +59,4 @@ class EmbedTitleWithDescriptionCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

@@ -13,13 +13,12 @@ class EmbedHeaderCell: UITableViewCell {
         label.textAlignment = .left
         label.numberOfLines = 0
         label.textColor = .white
-        label.font = UIFont(name: "LabGrotesque-Bold", size: 16)
+        label.font = UIFont.LabGrotesque().Bold(size: 16)
         return label
     }()
     
     func setup(title: String) {
         headerLabel.text = title
-        
     }
     
     func setupLayout() {
@@ -43,5 +42,4 @@ class EmbedHeaderCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }

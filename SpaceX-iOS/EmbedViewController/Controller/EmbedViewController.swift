@@ -21,12 +21,14 @@ class EmbedViewController: UIViewController {
         tv.register(EmbedImageTableViewCell.self, forCellReuseIdentifier: EmbedImageTableViewCell.identifier)
         tv.register(EmbedTitleWithDescriptionCell.self, forCellReuseIdentifier: EmbedTitleWithDescriptionCell.identifier)
         tv.register(EmbedHeaderCell.self, forCellReuseIdentifier: EmbedHeaderCell.identifier)
+        tv.register(EmbedParameterTableViewCell.self, forCellReuseIdentifier: EmbedParameterTableViewCell.identifier)
         tv.delegate = self
         tv.dataSource = self
         tv.rowHeight = UITableView.automaticDimension //авторасчет размера ячейки
         tv.contentInsetAdjustmentBehavior = .never //убирает верхний отсуп тейбл вью
         //        tv.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 32))
         //        tv.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+        tv.showsVerticalScrollIndicator = false
         return tv
     }()
     
@@ -37,10 +39,11 @@ class EmbedViewController: UIViewController {
     }
     
     enum Section {
-        case parameterCell(UITableViewCell)
+        case parameterCell([(String, String)])
         case image(UIImage)
         case header(String)
         case titleWithDescription(String, String)
+        case space(CGFloat)
     }
     
     
@@ -75,8 +78,6 @@ class EmbedViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
 }
 
 
@@ -86,8 +87,14 @@ extension EmbedViewController {
         var sections = [Section]()
         sections.append(.image(image))
         
-       //     сюда вставить секцию
-        sections.append(.parameterCell(UITableViewCell))
+        sections.append(.parameterCell([
+            ("Высота, m", String(element.height!.meters!)),
+            ("Диаметр, m", String(element.diameter!.meters!)),
+            ("Масса, kg", String(element.mass!.kg!)),
+            ("Нагрузка, kg", String(element.payloadWeights!.map({$0.kg!}).reduce(0, +))),
+        ]))
+        
+        sections.append(.space(50))
         
         if let firstFlight = element.firstFlight {
             sections.append(.titleWithDescription("Первый запуск", firstFlight))
@@ -128,7 +135,6 @@ extension EmbedViewController {
         if let firstStageFuelAmountTons = element.firstStage?.burnTimeSEC {
             sections.append(.titleWithDescription("Время сгорания", String(firstStageFuelAmountTons)))
         }
-        
         return sections
     }
 }
@@ -145,6 +151,7 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
         case .parameterCell: return 1
         case .header: return 1
         case .titleWithDescription: return 1
+        case .space: return 1
         }
     }
     
@@ -157,10 +164,11 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: EmbedImageTableViewCell.identifier, for: indexPath) as! EmbedImageTableViewCell
             cell.setup(with: i)
             return cell
-           
-        case .parameterCell:
-            <#code#>
             
+        case .parameterCell(let items):
+            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedParameterTableViewCell.identifier, for: indexPath) as! EmbedParameterTableViewCell
+            cell.setup(items: items)
+            return cell
         case .header(let title):
             let cell = tableView.dequeueReusableCell(withIdentifier: EmbedHeaderCell.identifier, for: indexPath) as! EmbedHeaderCell
             cell.setup(title: title)
@@ -172,7 +180,11 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(title: title, description: description)
             return cell
             
-        
+        case .space:
+            let cell = UITableViewCell()
+            cell.backgroundColor = .black
+            cell.selectionStyle = .none
+            return cell
         }
     }
     
@@ -182,9 +194,10 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
         
         switch section {
         case .image: return 300
-        case .parameterCell: return 1
+        case .parameterCell: return 96
         case .header: return UITableView.automaticDimension
         case .titleWithDescription: return UITableView.automaticDimension
+        case .space(let space): return space
         }
     }
 }

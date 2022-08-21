@@ -16,7 +16,6 @@ class MainViewController: UIViewController {
     let containerView = UIView()
     let barView = MainBarView()
     let pageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +26,11 @@ class MainViewController: UIViewController {
         view.addSubview(barView)
         view.addSubview(containerView)
         
-        
         setupData()
         viewModel.fetchRocketData()
         setupBarView()
         setupContainerView()
     }
-    
-    
     
     private func setupData() {
         
@@ -51,9 +47,8 @@ class MainViewController: UIViewController {
             print(value)
             
         }.store(in: &viewModel.cancellables)
-    
+        
     }
-    
     
     //тут создаем пэйджвьюконтроллер
     func setupBarView() {
@@ -63,8 +58,8 @@ class MainViewController: UIViewController {
             make.left.equalToSuperview()
             make.right.equalToSuperview()
         }
-        
     }
+    
     func setupContainerView() {
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
@@ -73,7 +68,7 @@ class MainViewController: UIViewController {
             make.bottom.equalTo(barView.snp.top)
         }
         
-        add(pageViewController, toView: containerView) //добавляем pageViewController на главную вью. почему именно так?
+        add(pageViewController, toView: containerView)
     }
 }
 
@@ -85,7 +80,6 @@ extension MainViewController: UIPageViewControllerDelegate {
         if let currentViewController = pageViewController.viewControllers![0] as? EmbedViewController {
             barView.selectedPage = currentViewController.index
         }
-        
     }
 }
 
@@ -95,6 +89,4 @@ extension MainViewController: PageViewControllerDelegate {
     func setPagesIndicatorCount(_ count: Int) {
         barView.countPages = count
     }
-    
-    
 }

@@ -22,5 +22,4 @@ extension UITraitEnvironment {
         //return UIApplication.shared.keyWindow?.safeAreaInsets.bottom ?? 0
         return window.frame.maxY - safeFrame.maxY
     }
-    
 }
