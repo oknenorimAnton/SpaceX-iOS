@@ -24,7 +24,7 @@ class EmbedImageTableViewCell: UITableViewCell {
     private var roundedView: UIView = {
         let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         return view
     }()

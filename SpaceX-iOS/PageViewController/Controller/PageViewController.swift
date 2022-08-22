@@ -9,9 +9,12 @@ import UIKit
 
 protocol PageViewControllerDelegate: AnyObject {
     func setPagesIndicatorCount(_ count: Int) // передали кол-во страниц
+    func settingsButtonTapped()
 }
 
+
 class PageViewController: UIPageViewController {
+    
     
     var rocketResponseElement: [RocketResponseElement]? {
         didSet{
@@ -27,7 +30,9 @@ class PageViewController: UIPageViewController {
         guard let rocketResponseElement = rocketResponseElement else {return []}
         
         for (i,v) in rocketResponseElement.enumerated() {
-            result.append(EmbedViewController(index: i, element: v, image: images[i]))
+            let vc = EmbedViewController(index: i, element: v, image: images[i])
+            vc.delegate = self
+            result.append(vc)
         }
         return result
     }()

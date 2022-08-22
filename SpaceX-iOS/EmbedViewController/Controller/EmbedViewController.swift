@@ -7,13 +7,18 @@
 
 import UIKit
 import SnapKit
+
+protocol EmbedViewControllerDelegate: AnyObject {
+    func settingsButtonTapped()
+}
+
 //создание встроенного контроллера 
 class EmbedViewController: UIViewController {
     
     let index: Int
     let element: RocketResponseElement
     let image: UIImage
-    
+    weak var delegate: EmbedViewControllerDelegate?
     
     lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -22,13 +27,14 @@ class EmbedViewController: UIViewController {
         tv.register(EmbedTitleWithDescriptionCell.self, forCellReuseIdentifier: EmbedTitleWithDescriptionCell.identifier)
         tv.register(EmbedHeaderCell.self, forCellReuseIdentifier: EmbedHeaderCell.identifier)
         tv.register(EmbedParameterTableViewCell.self, forCellReuseIdentifier: EmbedParameterTableViewCell.identifier)
+        tv.register(EmbedSettingButtonCell.self, forCellReuseIdentifier: EmbedSettingButtonCell.identifier)
+        tv.register(EmbedStartingButtonViewCell.self, forCellReuseIdentifier: EmbedStartingButtonViewCell.identifier)
         tv.delegate = self
         tv.dataSource = self
         tv.rowHeight = UITableView.automaticDimension //авторасчет размера ячейки
         tv.contentInsetAdjustmentBehavior = .never //убирает верхний отсуп тейбл вью
-        //        tv.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 32))
-        //        tv.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         tv.showsVerticalScrollIndicator = false
+        tv.backgroundColor = .black
         return tv
     }()
     
@@ -39,11 +45,13 @@ class EmbedViewController: UIViewController {
     }
     
     enum Section {
+        case settingButton(String)
         case parameterCell([(String, String)])
         case image(UIImage)
         case header(String)
         case titleWithDescription(String, String)
         case space(CGFloat)
+        case startingButton(String)
     }
     
     
@@ -55,7 +63,7 @@ class EmbedViewController: UIViewController {
     }
     
     private func setupView() {
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     private func setupLayout() {
@@ -86,6 +94,10 @@ extension EmbedViewController {
     func createDataSource() -> [Section] {
         var sections = [Section]()
         sections.append(.image(image))
+        
+        sections.append(.settingButton(element.name!))
+        
+        sections.append(.space(32))
         
         sections.append(.parameterCell([
             ("Высота, m", String(element.height!.meters!)),
@@ -135,70 +147,8 @@ extension EmbedViewController {
         if let firstStageFuelAmountTons = element.firstStage?.burnTimeSEC {
             sections.append(.titleWithDescription("Время сгорания", String(firstStageFuelAmountTons)))
         }
+        
+        sections.append(.startingButton("Просмотреть запуски"))
         return sections
     }
 }
-
-extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return dataSource.count
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch dataSource[section] {
-        case .image: return 1
-        case .parameterCell: return 1
-        case .header: return 1
-        case .titleWithDescription: return 1
-        case .space: return 1
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let section = dataSource[indexPath.section]
-        
-        switch section {
-        case .image(let i):
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedImageTableViewCell.identifier, for: indexPath) as! EmbedImageTableViewCell
-            cell.setup(with: i)
-            return cell
-            
-        case .parameterCell(let items):
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedParameterTableViewCell.identifier, for: indexPath) as! EmbedParameterTableViewCell
-            cell.setup(items: items)
-            return cell
-        case .header(let title):
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedHeaderCell.identifier, for: indexPath) as! EmbedHeaderCell
-            cell.setup(title: title)
-            return cell
-            
-            
-        case .titleWithDescription(let title, let description):
-            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedTitleWithDescriptionCell.identifier, for: indexPath) as! EmbedTitleWithDescriptionCell
-            cell.setup(title: title, description: description)
-            return cell
-            
-        case .space:
-            let cell = UITableViewCell()
-            cell.backgroundColor = .black
-            cell.selectionStyle = .none
-            return cell
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        let section = dataSource[indexPath.section]
-        
-        switch section {
-        case .image: return 300
-        case .parameterCell: return 96
-        case .header: return UITableView.automaticDimension
-        case .titleWithDescription: return UITableView.automaticDimension
-        case .space(let space): return space
-        }
-    }
-}
-

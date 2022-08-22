@@ -23,6 +23,7 @@ class MainBarView: UIView {
     }
     
     func setupView() {
+        backgroundColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
         setupLayout()
         setupSubviews()
     }

@@ -10,6 +10,7 @@ import Combine
 import SnapKit
 //здесь работаем с вью
 
+
 class MainViewController: UIViewController {
     
     let viewModel = MainViewModel()
@@ -89,4 +90,11 @@ extension MainViewController: PageViewControllerDelegate {
     func setPagesIndicatorCount(_ count: Int) {
         barView.countPages = count
     }
+    
+    func settingsButtonTapped() {
+        let vc = StartingViewController()
+        vc.modalPresentationStyle = .formSheet
+        present(vc, animated: true)
+    }
+    
 }
