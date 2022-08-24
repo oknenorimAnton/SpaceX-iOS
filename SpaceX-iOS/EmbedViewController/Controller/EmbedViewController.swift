@@ -10,6 +10,7 @@ import SnapKit
 
 protocol EmbedViewControllerDelegate: AnyObject {
     func settingsButtonTapped()
+    func startingsButtonTapped()
 }
 
 //создание встроенного контроллера 
@@ -28,7 +29,7 @@ class EmbedViewController: UIViewController {
         tv.register(EmbedHeaderCell.self, forCellReuseIdentifier: EmbedHeaderCell.identifier)
         tv.register(EmbedParameterTableViewCell.self, forCellReuseIdentifier: EmbedParameterTableViewCell.identifier)
         tv.register(EmbedSettingButtonCell.self, forCellReuseIdentifier: EmbedSettingButtonCell.identifier)
-        tv.register(EmbedStartingButtonViewCell.self, forCellReuseIdentifier: EmbedStartingButtonViewCell.identifier)
+        tv.register(EmbedStartingButtonCell.self, forCellReuseIdentifier: EmbedStartingButtonCell.identifier)
         tv.delegate = self
         tv.dataSource = self
         tv.rowHeight = UITableView.automaticDimension //авторасчет размера ячейки
@@ -75,7 +76,6 @@ class EmbedViewController: UIViewController {
         }
     }
     
-    
     init(index: Int, element: RocketResponseElement, image: UIImage) {
         self.index = index
         self.element = element
@@ -87,7 +87,6 @@ class EmbedViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 extension EmbedViewController {
     
@@ -111,6 +110,17 @@ extension EmbedViewController {
         if let firstFlight = element.firstFlight {
             sections.append(.titleWithDescription("Первый запуск", firstFlight))
         }
+//        var mockDict: = ["date": "2018-12-04 10:02"]
+//
+//        //Convertation to Date
+//
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+//        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone
+//        let dataDate = dateFormatter.date(from: dict["date"] as! String)!
+//
+//        dateFormatter.dateFormat = "MMMM dd"
+//        let newStringDate = dateFormatter.string(from: dataDate)
         
         if let country = element.country {
             sections.append(.titleWithDescription("Страна", country))

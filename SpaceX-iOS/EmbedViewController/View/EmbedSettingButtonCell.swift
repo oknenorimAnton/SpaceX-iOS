@@ -12,6 +12,7 @@ protocol EmbedSettingButtonCellDelegate: AnyObject {
     func settingsButtonTapped()
 }
 
+
 class EmbedSettingButtonCell: UITableViewCell {
     
     static var identifier: String {
@@ -35,7 +36,7 @@ class EmbedSettingButtonCell: UITableViewCell {
     func setup(title: String) {
         nameLabel.text = title
     }
-    
+
     weak var delegate: EmbedSettingButtonCellDelegate?
     
     func setupLayout() {
@@ -58,6 +59,7 @@ class EmbedSettingButtonCell: UITableViewCell {
         }
     }
     
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = true
@@ -70,6 +72,7 @@ class EmbedSettingButtonCell: UITableViewCell {
     
     @objc func settingButtonTapped(sender: UIButton) {
         delegate?.settingsButtonTapped()
+       
     }
     
     required init?(coder: NSCoder) {

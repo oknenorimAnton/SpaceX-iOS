@@ -17,10 +17,11 @@
 		3ADA14B228B26005003E273F /* LabGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */; };
 		3ADA14B328B26005003E273F /* LabGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA14B128B26005003E273F /* LabGrotesque-Regular.ttf */; };
 		3ADA14B528B26819003E273F /* EmbedSettingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B428B26819003E273F /* EmbedSettingButtonCell.swift */; };
-		3ADA14B728B280EE003E273F /* EmbedStartingButtonViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B628B280ED003E273F /* EmbedStartingButtonViewCell.swift */; };
+		3ADA14B728B280EE003E273F /* EmbedStartingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B628B280ED003E273F /* EmbedStartingButtonCell.swift */; };
 		3ADA14BA28B3E5E9003E273F /* EmbedVC+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B928B3E5E9003E273F /* EmbedVC+UITableView.swift */; };
-		3ADA14BC28B3E650003E273F /* EmbedVC+EmbedButtonCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14BB28B3E650003E273F /* EmbedVC+EmbedButtonCellDelegate.swift */; };
 		3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14BD28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift */; };
+		3ADA14C028B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14BF28B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift */; };
+		3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C328B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift */; };
 		3AE6502C289AD8E800D8D90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502B289AD8E800D8D90B /* AppDelegate.swift */; };
 		3AE6502E289AD8E800D8D90B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */; };
 		3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502F289AD8E800D8D90B /* MainViewController.swift */; };
@@ -49,10 +50,11 @@
 		3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LabGrotesque-Bold.ttf"; path = "../../../../Downloads/font/LabGrotesque-Bold.ttf"; sourceTree = "<group>"; };
 		3ADA14B128B26005003E273F /* LabGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		3ADA14B428B26819003E273F /* EmbedSettingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedSettingButtonCell.swift; sourceTree = "<group>"; };
-		3ADA14B628B280ED003E273F /* EmbedStartingButtonViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStartingButtonViewCell.swift; sourceTree = "<group>"; };
+		3ADA14B628B280ED003E273F /* EmbedStartingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStartingButtonCell.swift; sourceTree = "<group>"; };
 		3ADA14B928B3E5E9003E273F /* EmbedVC+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+UITableView.swift"; sourceTree = "<group>"; };
-		3ADA14BB28B3E650003E273F /* EmbedVC+EmbedButtonCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+EmbedButtonCellDelegate.swift"; sourceTree = "<group>"; };
 		3ADA14BD28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageVC+EmbedViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		3ADA14BF28B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+EmbedSettingButtonCell.swift"; sourceTree = "<group>"; };
+		3ADA14C328B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+EmbedStartingButtonCell.swift"; sourceTree = "<group>"; };
 		3AE65028289AD8E800D8D90B /* SpaceX-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE6502B289AD8E800D8D90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,7 +97,7 @@
 				3ADA14B428B26819003E273F /* EmbedSettingButtonCell.swift */,
 				3AA8763428B107810040C613 /* EmbedParameterTableViewCell.swift */,
 				3ADA14A828B11125003E273F /* ParameterCollectionViewCell.swift */,
-				3ADA14B628B280ED003E273F /* EmbedStartingButtonViewCell.swift */,
+				3ADA14B628B280ED003E273F /* EmbedStartingButtonCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -214,7 +216,8 @@
 			children = (
 				3AE65052289D8AC100D8D90B /* EmbedViewController.swift */,
 				3ADA14B928B3E5E9003E273F /* EmbedVC+UITableView.swift */,
-				3ADA14BB28B3E650003E273F /* EmbedVC+EmbedButtonCellDelegate.swift */,
+				3ADA14BF28B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift */,
+				3ADA14C328B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -383,15 +386,16 @@
 				3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */,
 				3AA8763328AD582B0040C613 /* EmbedHeaderCell.swift in Sources */,
 				3AE65040289ADDA000D8D90B /* RocketResponseElement.swift in Sources */,
-				3ADA14BC28B3E650003E273F /* EmbedVC+EmbedButtonCellDelegate.swift in Sources */,
 				3AE6505928A036E500D8D90B /* UITraitEnvironment.swift in Sources */,
-				3ADA14B728B280EE003E273F /* EmbedStartingButtonViewCell.swift in Sources */,
+				3ADA14B728B280EE003E273F /* EmbedStartingButtonCell.swift in Sources */,
 				3ADA14AB28B15923003E273F /* UIFont.swift in Sources */,
 				3AE6504A289D87C300D8D90B /* PageViewController.swift in Sources */,
+				3ADA14C028B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift in Sources */,
 				3AD14B9D28A578C900D20E09 /* EmbedTitleWithDescriptionCell.swift in Sources */,
 				3ADA14A928B11125003E273F /* ParameterCollectionViewCell.swift in Sources */,
 				3AE6505728A0340500D8D90B /* MainBarView.swift in Sources */,
 				3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */,
+				3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */,
 				3AE6502C289AD8E800D8D90B /* AppDelegate.swift in Sources */,
 				3AE6505D28A184BA00D8D90B /* StartingViewController.swift in Sources */,
 				3AD14B9B28A410BF00D20E09 /* EmbedImageTableViewCell.swift in Sources */,

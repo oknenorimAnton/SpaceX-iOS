@@ -10,7 +10,6 @@ import Combine
 import SnapKit
 //здесь работаем с вью
 
-
 class MainViewController: UIViewController {
     
     let viewModel = MainViewModel()
@@ -97,4 +96,8 @@ extension MainViewController: PageViewControllerDelegate {
         present(vc, animated: true)
     }
     
+    func startingsButtonTapped() {
+        let vc = StartingViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

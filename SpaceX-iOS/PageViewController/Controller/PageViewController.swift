@@ -10,6 +10,7 @@ import UIKit
 protocol PageViewControllerDelegate: AnyObject {
     func setPagesIndicatorCount(_ count: Int) // передали кол-во страниц
     func settingsButtonTapped()
+    func startingsButtonTapped()
 }
 
 

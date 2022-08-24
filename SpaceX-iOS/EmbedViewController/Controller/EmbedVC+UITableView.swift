@@ -1,6 +1,5 @@
 import UIKit
 
-
 extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -49,8 +48,10 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
             cell.setup(title: title, description: description)
             return cell
             
-        case .startingButton:
-            let cell = UITableViewCell()
+        case .startingButton(let title):
+            let cell = tableView.dequeueReusableCell(withIdentifier: EmbedStartingButtonCell.identifier, for: indexPath) as! EmbedStartingButtonCell
+            cell.delegate = self
+            cell.setup(title: title)
             cell.backgroundColor = .black
             cell.selectionStyle = .none
             return cell
