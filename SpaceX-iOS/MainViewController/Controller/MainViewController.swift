@@ -91,8 +91,10 @@ extension MainViewController: PageViewControllerDelegate {
     }
     
     func settingsButtonTapped() {
-        let vc = StartingViewController()
+        
+        let vc = UINavigationController(rootViewController: SettingViewController())
         vc.modalPresentationStyle = .formSheet
+        vc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         present(vc, animated: true)
     }
     

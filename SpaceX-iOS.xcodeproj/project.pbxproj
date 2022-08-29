@@ -22,6 +22,9 @@
 		3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14BD28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift */; };
 		3ADA14C028B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14BF28B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift */; };
 		3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C328B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift */; };
+		3ADA14C628B7D1F7003E273F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C528B7D1F7003E273F /* SettingViewController.swift */; };
+		3ADA14CA28B92EBC003E273F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C928B92EBC003E273F /* String.swift */; };
+		3ADA14CC28B9307B003E273F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14CB28B9307B003E273F /* Date.swift */; };
 		3AE6502C289AD8E800D8D90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502B289AD8E800D8D90B /* AppDelegate.swift */; };
 		3AE6502E289AD8E800D8D90B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */; };
 		3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502F289AD8E800D8D90B /* MainViewController.swift */; };
@@ -55,6 +58,9 @@
 		3ADA14BD28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PageVC+EmbedViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		3ADA14BF28B526AE003E273F /* EmbedVC+EmbedSettingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+EmbedSettingButtonCell.swift"; sourceTree = "<group>"; };
 		3ADA14C328B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EmbedVC+EmbedStartingButtonCell.swift"; sourceTree = "<group>"; };
+		3ADA14C528B7D1F7003E273F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		3ADA14C928B92EBC003E273F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		3ADA14CB28B9307B003E273F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		3AE65028289AD8E800D8D90B /* SpaceX-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE6502B289AD8E800D8D90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +108,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		3ADA14C728B7D227003E273F /* SettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA14C828B7D275003E273F /* Controller */,
+			);
+			path = SettingViewController;
+			sourceTree = "<group>";
+		};
+		3ADA14C828B7D275003E273F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA14C528B7D1F7003E273F /* SettingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		3AE6501F289AD8E800D8D90B = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +149,7 @@
 				3AE6504B289D87CC00D8D90B /* PageViewController */,
 				3AE65050289D8A8C00D8D90B /* EmbedViewController */,
 				3AE6505E28A1853400D8D90B /* StartingViewController */,
+				3ADA14C728B7D227003E273F /* SettingViewController */,
 				3AE6504D289D880400D8D90B /* Extensions */,
 				3AE6502B289AD8E800D8D90B /* AppDelegate.swift */,
 				3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */,
@@ -195,6 +218,8 @@
 			children = (
 				3AE6504E289D882200D8D90B /* UIViewController.swift */,
 				3AE6505828A036E500D8D90B /* UITraitEnvironment.swift */,
+				3ADA14C928B92EBC003E273F /* String.swift */,
+				3ADA14CB28B9307B003E273F /* Date.swift */,
 				3ADA14AA28B15923003E273F /* UIFont.swift */,
 				3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */,
 				3ADA14B128B26005003E273F /* LabGrotesque-Regular.ttf */,
@@ -378,11 +403,13 @@
 				3AE6506128A1876C00D8D90B /* StartingTableViewCell.swift in Sources */,
 				3ADA14B528B26819003E273F /* EmbedSettingButtonCell.swift in Sources */,
 				3AE65053289D8AC200D8D90B /* EmbedViewController.swift in Sources */,
+				3ADA14CA28B92EBC003E273F /* String.swift in Sources */,
 				3AE65055289D93F800D8D90B /* StartingResponseElement.swift in Sources */,
 				3AE6504F289D882200D8D90B /* UIViewController.swift in Sources */,
 				3AA8763528B107810040C613 /* EmbedParameterTableViewCell.swift in Sources */,
 				3ADA14BA28B3E5E9003E273F /* EmbedVC+UITableView.swift in Sources */,
 				3AE65046289AF74D00D8D90B /* MainViewModel.swift in Sources */,
+				3ADA14C628B7D1F7003E273F /* SettingViewController.swift in Sources */,
 				3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */,
 				3AA8763328AD582B0040C613 /* EmbedHeaderCell.swift in Sources */,
 				3AE65040289ADDA000D8D90B /* RocketResponseElement.swift in Sources */,
@@ -396,6 +423,7 @@
 				3AE6505728A0340500D8D90B /* MainBarView.swift in Sources */,
 				3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */,
 				3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */,
+				3ADA14CC28B9307B003E273F /* Date.swift in Sources */,
 				3AE6502C289AD8E800D8D90B /* AppDelegate.swift in Sources */,
 				3AE6505D28A184BA00D8D90B /* StartingViewController.swift in Sources */,
 				3AD14B9B28A410BF00D20E09 /* EmbedImageTableViewCell.swift in Sources */,

@@ -108,19 +108,8 @@ extension EmbedViewController {
         sections.append(.space(50))
         
         if let firstFlight = element.firstFlight {
-            sections.append(.titleWithDescription("Первый запуск", firstFlight))
+            sections.append(.titleWithDescription("Первый запуск", firstFlight.convertDateFormat()))
         }
-//        var mockDict: = ["date": "2018-12-04 10:02"]
-//
-//        //Convertation to Date
-//
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-//        dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone
-//        let dataDate = dateFormatter.date(from: dict["date"] as! String)!
-//
-//        dateFormatter.dateFormat = "MMMM dd"
-//        let newStringDate = dateFormatter.string(from: dataDate)
         
         if let country = element.country {
             sections.append(.titleWithDescription("Страна", country))
