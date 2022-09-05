@@ -34,7 +34,6 @@ class EmbedImageTableViewCell: UITableViewCell {
     }
     
     func setupLayout() {
-        
         addSubview(mainImageView)
         addSubview(roundedView)
         

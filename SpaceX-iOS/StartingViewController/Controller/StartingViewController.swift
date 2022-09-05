@@ -1,14 +1,13 @@
-//
-//  StartingViewController.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 08.08.2022.
-//
-
 import UIKit
 import SnapKit
+import Combine
 
 class StartingViewController: UIViewController {
+    
+    let rocketId: String
+    var launches: [LaunchData] = []
+    let viewModel = StartingViewModel()
+    var bag = Set<AnyCancellable>()
     
     lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -22,25 +21,44 @@ class StartingViewController: UIViewController {
         return tv
     }()
     
+    private func bindViewModel() {
+        
+        let queue = DispatchQueue.main
+        viewModel.$launchData
+            .receive(on: queue)
+            .sink { [weak self] newValue in
+                guard let self = self, !newValue.isEmpty else {return}
+                self.launches = newValue.filter { $0.rocket.rawValue == self.rocketId }
+                self.tableView.reloadData()
+            }.store(in: &bag)
+    }
+    
+//    var dataSource = [Section]() {
+//        didSet {
+//            tableView.reloadData()
+//        }
+//    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(tableView)
+        bindViewModel()
+        viewModel.fetchStartingData()
         
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
+    
+    init(rocketId: String) {
+        self.rocketId = rocketId
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
-extension StartingViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: StartingTableViewCell.identifier, for: indexPath) as! StartingTableViewCell
-        return cell
-    }
-}
+
+

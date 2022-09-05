@@ -13,6 +13,7 @@ import SnapKit
 class MainViewController: UIViewController {
     
     let viewModel = MainViewModel()
+    var currentRocketIndex = 0
     let containerView = UIView()
     let barView = MainBarView()
     let pageViewController = PageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
@@ -34,20 +35,21 @@ class MainViewController: UIViewController {
     
     private func setupData() {
         
-        viewModel.$rocketResponseElement.sink{ [weak self] value in
+        let queue = DispatchQueue.main
+        
+        viewModel.$rocketResponseElement
+            .receive(on: queue)
+            .sink { [weak self] value in
             guard let self = self, !value.isEmpty else {return} //проверяем что сам экран на который приходит запрос существует.
-            DispatchQueue.main.async {
-                self.pageViewController.rocketResponseElement = value
-            }
+            self.pageViewController.rocketResponseElement = value
         }.store(in: &viewModel.cancellables)
         
-        viewModel.$error.sink{ [weak self] value in
+        viewModel.$error.sink { [weak self] value in
             guard let _ = self, let value = value else {return}// проверяем что ошибка не нил. иначе по дефолту будет выводить ошибку т.к. в мейнвьюмодель еррор = нил
             
             print(value)
             
         }.store(in: &viewModel.cancellables)
-        
     }
     
     //тут создаем пэйджвьюконтроллер
@@ -79,6 +81,7 @@ extension MainViewController: UIPageViewControllerDelegate {
         
         if let currentViewController = pageViewController.viewControllers![0] as? EmbedViewController {
             barView.selectedPage = currentViewController.index
+            self.currentRocketIndex = currentViewController.index
         }
     }
 }
@@ -99,7 +102,8 @@ extension MainViewController: PageViewControllerDelegate {
     }
     
     func startingsButtonTapped() {
-        let vc = StartingViewController()
+        guard let rocketId = self.viewModel.rocketResponseElement[self.currentRocketIndex].id else { return }
+        let vc = StartingViewController(rocketId: rocketId)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

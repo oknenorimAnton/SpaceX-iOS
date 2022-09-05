@@ -10,6 +10,20 @@ import SnapKit
 
 class StartingTableViewCell: UITableViewCell {
     
+    //    var success = false {
+    //        didSet {
+    //
+    //
+    //        }
+    //    }
+    
+    
+    //    var dataSource = [Section]() {
+    //            didSet {
+    //                tableView.reloadData()
+    //            }
+    //        }
+    
     static var identifier: String {
         String(describing: self)
     }
@@ -24,14 +38,12 @@ class StartingTableViewCell: UITableViewCell {
     private lazy var nameLabel: UILabel = {
         let nl = UILabel()
         nl.textColor = UIColor (red:1, green: 1, blue: 1, alpha: 1)
-        nl.text = "FalconSat"
         return nl
     }()
     
     private lazy var dateLabel: UILabel = {
         let dl = UILabel()
         dl.textColor = UIColor (red: 0.557, green: 0.557, blue: 0.561, alpha: 1)
-        dl.text = "2 февраля, 2022"
         return dl
     }()
     
@@ -40,13 +52,23 @@ class StartingTableViewCell: UITableViewCell {
         return img
     }()
     
+    func setup(name: String?, date: String?, success: Bool?) {
+        nameLabel.text = name
+        dateLabel.text = date
+        if let success = success, success == true {
+                imageStart.image = UIImage(named: "Yes")
+            } else {
+            imageStart.image = UIImage(named: "No")
+        }
+    }
+    
     func setupLayout() {
         
         addSubview(viewCell)
         viewCell.addSubview(nameLabel)
         viewCell.addSubview(dateLabel)
         viewCell.addSubview(imageStart)
-        imageStart.image = UIImage(named: "Yes")
+        
         
         viewCell.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
@@ -59,7 +81,7 @@ class StartingTableViewCell: UITableViewCell {
         nameLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(24)
             make.left.equalToSuperview().offset(24)
-            make.right.equalToSuperview().offset(-198)
+            make.right.equalToSuperview().offset(-70)
         }
         
         dateLabel.snp.makeConstraints { make in

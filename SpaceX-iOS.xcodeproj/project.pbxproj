@@ -25,6 +25,8 @@
 		3ADA14C628B7D1F7003E273F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C528B7D1F7003E273F /* SettingViewController.swift */; };
 		3ADA14CA28B92EBC003E273F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14C928B92EBC003E273F /* String.swift */; };
 		3ADA14CC28B9307B003E273F /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14CB28B9307B003E273F /* Date.swift */; };
+		3ADA14CF28BD234A003E273F /* StartingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14CE28BD234A003E273F /* StartingViewModel.swift */; };
+		3ADA14D128BD32BF003E273F /* StartingVC+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14D028BD32BF003E273F /* StartingVC+UITableView.swift */; };
 		3AE6502C289AD8E800D8D90B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502B289AD8E800D8D90B /* AppDelegate.swift */; };
 		3AE6502E289AD8E800D8D90B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */; };
 		3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AE6502F289AD8E800D8D90B /* MainViewController.swift */; };
@@ -61,6 +63,8 @@
 		3ADA14C528B7D1F7003E273F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		3ADA14C928B92EBC003E273F /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		3ADA14CB28B9307B003E273F /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		3ADA14CE28BD234A003E273F /* StartingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartingViewModel.swift; sourceTree = "<group>"; };
+		3ADA14D028BD32BF003E273F /* StartingVC+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StartingVC+UITableView.swift"; sourceTree = "<group>"; };
 		3AE65028289AD8E800D8D90B /* SpaceX-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SpaceX-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3AE6502B289AD8E800D8D90B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3AE6502D289AD8E800D8D90B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +128,13 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
+		3ADA14CD28BD2303003E273F /* ModelStarting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelStarting;
+			sourceTree = "<group>";
+		};
 		3AE6501F289AD8E800D8D90B = {
 			isa = PBXGroup;
 			children = (
@@ -163,21 +174,21 @@
 		3AE65041289AF6BD00D8D90B /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3AE65042289AF6CB00D8D90B /* Model */,
+				3ADA14CD28BD2303003E273F /* ModelStarting */,
+				3AE65042289AF6CB00D8D90B /* ModelRocket */,
 				3AE65044289AF6DF00D8D90B /* View */,
 				3AE65043289AF6D500D8D90B /* Controller */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		3AE65042289AF6CB00D8D90B /* Model */ = {
+		3AE65042289AF6CB00D8D90B /* ModelRocket */ = {
 			isa = PBXGroup;
 			children = (
 				3AE6503F289ADDA000D8D90B /* RocketResponseElement.swift */,
-				3AE65054289D93F800D8D90B /* StartingResponseElement.swift */,
 				3AE65045289AF74D00D8D90B /* MainViewModel.swift */,
 			);
-			path = Model;
+			path = ModelRocket;
 			sourceTree = "<group>";
 		};
 		3AE65043289AF6D500D8D90B /* Controller */ = {
@@ -259,7 +270,10 @@
 			isa = PBXGroup;
 			children = (
 				3AE6505C28A184BA00D8D90B /* StartingViewController.swift */,
+				3ADA14CE28BD234A003E273F /* StartingViewModel.swift */,
+				3AE65054289D93F800D8D90B /* StartingResponseElement.swift */,
 				3AE6506028A1876C00D8D90B /* StartingTableViewCell.swift */,
+				3ADA14D028BD32BF003E273F /* StartingVC+UITableView.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -421,6 +435,8 @@
 				3AD14B9D28A578C900D20E09 /* EmbedTitleWithDescriptionCell.swift in Sources */,
 				3ADA14A928B11125003E273F /* ParameterCollectionViewCell.swift in Sources */,
 				3AE6505728A0340500D8D90B /* MainBarView.swift in Sources */,
+				3ADA14CF28BD234A003E273F /* StartingViewModel.swift in Sources */,
+				3ADA14D128BD32BF003E273F /* StartingVC+UITableView.swift in Sources */,
 				3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */,
 				3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */,
 				3ADA14CC28B9307B003E273F /* Date.swift in Sources */,
