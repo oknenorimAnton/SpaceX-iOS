@@ -5,9 +5,11 @@ import Combine
 class StartingViewController: UIViewController {
     
     let rocketId: String
+    let customTitle: String
     var launches: [LaunchData] = []
     let viewModel = StartingViewModel()
     var bag = Set<AnyCancellable>()
+    
     
     lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -21,6 +23,14 @@ class StartingViewController: UIViewController {
         return tv
     }()
     
+    var activityIndicator: UIActivityIndicatorView = {
+        let ai = UIActivityIndicatorView()
+        ai.style = .large
+        ai.startAnimating()
+        ai.color = .gray
+        return ai
+    }()
+    
     private func bindViewModel() {
         
         let queue = DispatchQueue.main
@@ -30,28 +40,52 @@ class StartingViewController: UIViewController {
                 guard let self = self, !newValue.isEmpty else {return}
                 self.launches = newValue.filter { $0.rocket.rawValue == self.rocketId }
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
+            }.store(in: &bag)
+        
+        viewModel.$error
+            .receive(on: queue)
+            .sink { [weak self] newValue in
+                guard let self = self, let newValue = newValue else {return}
+                self.activityIndicator.stopAnimating()
+                print("Error", newValue)
             }.store(in: &bag)
     }
     
-//    var dataSource = [Section]() {
-//        didSet {
-//            tableView.reloadData()
-//        }
-//    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.addSubview(tableView)
+        setupLayout()
+        setupBackBarButton()
         bindViewModel()
         viewModel.fetchStartingData()
+        title = customTitle
+    }
+    
+    
+    private func setupLayout() {
+        
+        view.addSubview(tableView)
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
         
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
     }
     
-    init(rocketId: String) {
+    private func setupBackBarButton() {
+        let backButton = UIBarButtonItem()
+        backButton.title = "Назад"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
+    }
+    
+    init(rocketId: String, title: String) {
         self.rocketId = rocketId
+        self.customTitle = title
         super.init(nibName: nil, bundle: nil)
     }
 

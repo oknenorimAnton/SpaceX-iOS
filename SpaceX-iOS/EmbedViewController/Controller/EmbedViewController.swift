@@ -10,7 +10,7 @@ import SnapKit
 
 protocol EmbedViewControllerDelegate: AnyObject {
     func settingsButtonTapped()
-    func startingsButtonTapped()
+    func startingsButtonTapped(with title: String)
 }
 
 //создание встроенного контроллера 
@@ -60,6 +60,7 @@ class EmbedViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupLayout()
+        setupNotifications()
         dataSource = createDataSource()
     }
     
@@ -74,6 +75,14 @@ class EmbedViewController: UIViewController {
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+    }
+    
+    private func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(update), name: Notification.Name("update"), object: nil)
+    }
+    
+    @objc func update() {
+        dataSource = createDataSource()
     }
     
     init(index: Int, element: RocketResponseElement, image: UIImage) {
@@ -91,6 +100,8 @@ class EmbedViewController: UIViewController {
 extension EmbedViewController {
     
     func createDataSource() -> [Section] {
+        let setting = AppSettings.shared
+        
         var sections = [Section]()
         sections.append(.image(image))
         
@@ -98,11 +109,39 @@ extension EmbedViewController {
         
         sections.append(.space(32))
         
+        var height: (String, Double) {
+            switch setting.height {
+            case .m: return ("m", element.height!.meters!)
+            case .ft:  return ("ft", element.height!.feet!)
+            }
+        }
+        
+        var diameter: (String, Double) {
+            switch setting.diameter {
+            case .m: return ("m", (element.diameter!.meters!))
+            case .ft: return ("ft", (element.diameter!.feet!))
+            }
+        }
+        
+        var mass: (String, Int) {
+            switch setting.mass {
+            case .kg: return ("kg", (element.mass!.kg!))
+            case .lb: return ("lb", (element.mass!.lb!))
+            }
+        }
+        
+        var payload: (String, Int) {
+            switch setting.payload {
+            case .kg: return ("kg", (element.payloadWeights!.map({$0.kg!}).reduce(0, +)))
+            case .lb: return ("lb", (element.payloadWeights!.map({$0.lb!}).reduce(0, +)))
+            }
+        }
+        
         sections.append(.parameterCell([
-            ("Высота, m", String(element.height!.meters!)),
-            ("Диаметр, m", String(element.diameter!.meters!)),
-            ("Масса, kg", String(element.mass!.kg!)),
-            ("Нагрузка, kg", String(element.payloadWeights!.map({$0.kg!}).reduce(0, +))),
+            ("Высота, \(height.0)", String(height.1)),
+            ("Диаметр, \(diameter.0)", String(diameter.1)),
+            ("Масса, \(mass.0)", String(mass.1)),
+            ("Нагрузка, \(payload.0)", String(payload.1))
         ]))
         
         sections.append(.space(50))

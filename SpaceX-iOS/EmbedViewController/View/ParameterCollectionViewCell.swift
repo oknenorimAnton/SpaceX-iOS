@@ -50,8 +50,8 @@ class ParameterCollectionViewCell: UICollectionViewCell {
         
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(parameterLabel.snp.bottom).offset(1)
-            make.left.equalToSuperview().offset(8)
-            make.right.equalToSuperview().offset(-8)
+            make.left.equalToSuperview().offset(7)
+            make.right.equalToSuperview().offset(-7)
             make.height.equalTo(20)
         }
     }

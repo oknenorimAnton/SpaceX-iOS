@@ -1,14 +1,13 @@
 import UIKit
 
 extension PageViewController: EmbedViewControllerDelegate {
-    func startingsButtonTapped() {
-        customDelegate?.startingsButtonTapped()
-    }
-    
     
     func settingsButtonTapped() {
         customDelegate?.settingsButtonTapped()
     }
     
+    func startingsButtonTapped(with title: String) {
+        customDelegate?.startingsButtonTapped(with: title)
+    }
     
 }

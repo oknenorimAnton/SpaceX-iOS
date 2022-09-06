@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E98E4ACAA016F6BC78A2A59 /* Pods_SpaceX_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAF89AB413D024A0B3F4CD0 /* Pods_SpaceX_iOS.framework */; };
+		3A9BAEC828C66EC5000A3C30 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */; };
 		3AA8763328AD582B0040C613 /* EmbedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8763228AD582B0040C613 /* EmbedHeaderCell.swift */; };
 		3AA8763528B107810040C613 /* EmbedParameterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8763428B107810040C613 /* EmbedParameterTableViewCell.swift */; };
 		3AD14B9B28A410BF00D20E09 /* EmbedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD14B9A28A410BF00D20E09 /* EmbedImageTableViewCell.swift */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		2CAF89AB413D024A0B3F4CD0 /* Pods_SpaceX_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		3AA8763228AD582B0040C613 /* EmbedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedHeaderCell.swift; sourceTree = "<group>"; };
 		3AA8763428B107810040C613 /* EmbedParameterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedParameterTableViewCell.swift; sourceTree = "<group>"; };
 		3AD14B9A28A410BF00D20E09 /* EmbedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -98,6 +100,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3A9BAEC528C66EA4000A3C30 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3A9BAEC628C66EB9000A3C30 /* Runtime */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3A9BAEC628C66EB9000A3C30 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		3A9BAEC928C7C60B000A3C30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3ADA14CE28BD234A003E273F /* StartingViewModel.swift */,
+				3AE65054289D93F800D8D90B /* StartingResponseElement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3ADA14B828B3E2EC003E273F /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +183,7 @@
 		3AE6502A289AD8E800D8D90B /* SpaceX-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				3A9BAEC528C66EA4000A3C30 /* Helpers */,
 				3AE65041289AF6BD00D8D90B /* MainViewController */,
 				3AE6504B289D87CC00D8D90B /* PageViewController */,
 				3AE65050289D8A8C00D8D90B /* EmbedViewController */,
@@ -261,6 +289,7 @@
 		3AE6505E28A1853400D8D90B /* StartingViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3A9BAEC928C7C60B000A3C30 /* Model */,
 				3AE6505F28A1854B00D8D90B /* Controller */,
 			);
 			path = StartingViewController;
@@ -270,8 +299,6 @@
 			isa = PBXGroup;
 			children = (
 				3AE6505C28A184BA00D8D90B /* StartingViewController.swift */,
-				3ADA14CE28BD234A003E273F /* StartingViewModel.swift */,
-				3AE65054289D93F800D8D90B /* StartingResponseElement.swift */,
 				3AE6506028A1876C00D8D90B /* StartingTableViewCell.swift */,
 				3ADA14D028BD32BF003E273F /* StartingVC+UITableView.swift */,
 			);
@@ -437,6 +464,7 @@
 				3AE6505728A0340500D8D90B /* MainBarView.swift in Sources */,
 				3ADA14CF28BD234A003E273F /* StartingViewModel.swift in Sources */,
 				3ADA14D128BD32BF003E273F /* StartingVC+UITableView.swift in Sources */,
+				3A9BAEC828C66EC5000A3C30 /* AppSettings.swift in Sources */,
 				3ADA14BE28B3F979003E273F /* PageVC+EmbedViewControllerDelegate.swift in Sources */,
 				3ADA14C428B53CD8003E273F /* EmbedVC+EmbedStartingButtonCell.swift in Sources */,
 				3ADA14CC28B9307B003E273F /* Date.swift in Sources */,

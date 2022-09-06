@@ -10,7 +10,7 @@ import UIKit
 protocol PageViewControllerDelegate: AnyObject {
     func setPagesIndicatorCount(_ count: Int) // передали кол-во страниц
     func settingsButtonTapped()
-    func startingsButtonTapped()
+    func startingsButtonTapped(with title: String)
 }
 
 
@@ -42,6 +42,7 @@ class PageViewController: UIPageViewController {
         let ai = UIActivityIndicatorView()
         ai.style = .large
         ai.startAnimating()
+        ai.color = .gray
         return ai
     }()
     

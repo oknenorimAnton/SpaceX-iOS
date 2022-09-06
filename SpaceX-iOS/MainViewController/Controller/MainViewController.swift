@@ -21,16 +21,16 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupNavigationController()
+        setupBarView()
+        setupContainerView()
+        
         pageViewController.delegate = self
         pageViewController.customDelegate = self
         
-        view.addSubview(barView)
-        view.addSubview(containerView)
-        
         setupData()
         viewModel.fetchRocketData()
-        setupBarView()
-        setupContainerView()
+        
     }
     
     private func setupData() {
@@ -54,6 +54,9 @@ class MainViewController: UIViewController {
     
     //тут создаем пэйджвьюконтроллер
     func setupBarView() {
+        
+        view.addSubview(barView)
+        
         barView.snp.makeConstraints { make in
             make.height.equalTo(72 + safeAreaBottomPadding)
             make.bottom.equalToSuperview()
@@ -63,6 +66,8 @@ class MainViewController: UIViewController {
     }
     
     func setupContainerView() {
+        
+        view.addSubview(containerView)
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
@@ -71,6 +76,12 @@ class MainViewController: UIViewController {
         }
         
         add(pageViewController, toView: containerView)
+    }
+    
+    private func setupNavigationController() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.tintColor = .white
     }
 }
 
@@ -101,9 +112,11 @@ extension MainViewController: PageViewControllerDelegate {
         present(vc, animated: true)
     }
     
-    func startingsButtonTapped() {
+    func startingsButtonTapped(with title: String) {
         guard let rocketId = self.viewModel.rocketResponseElement[self.currentRocketIndex].id else { return }
-        let vc = StartingViewController(rocketId: rocketId)
+        let vc = StartingViewController(rocketId: rocketId, title: title)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+
 }
