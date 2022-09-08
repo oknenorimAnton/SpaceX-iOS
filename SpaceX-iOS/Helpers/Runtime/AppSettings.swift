@@ -1,14 +1,5 @@
 import Foundation
 
-enum Units {
-    case m, ft
-}
-
-enum Weight {
-    case kg, lb
-}
-
-
 class AppSettings  {
     
     static let shared = AppSettings()

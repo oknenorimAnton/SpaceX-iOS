@@ -10,7 +10,6 @@ import Foundation
 extension String {
     
     func convertDateFormat(from fromFormat: String = "yyyy-MM-dd", to toFormat: String = "dd MMMM, yyyy") -> String {
-        
         if let date = makeDate(with: fromFormat) {
             return date.toString(withFormat: toFormat)
         }

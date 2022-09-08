@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		1E98E4ACAA016F6BC78A2A59 /* Pods_SpaceX_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAF89AB413D024A0B3F4CD0 /* Pods_SpaceX_iOS.framework */; };
 		3A9BAEC828C66EC5000A3C30 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */; };
+		3A9BAECB28CA5B3D000A3C30 /* MainVC+UIPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAECA28CA5B3C000A3C30 /* MainVC+UIPageViewControllerDelegate.swift */; };
+		3A9BAECD28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAECC28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift */; };
+		3A9BAED028CA5BCA000A3C30 /* Alertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAECF28CA5BCA000A3C30 /* Alertable.swift */; };
+		3A9BAED228CA63CA000A3C30 /* Units.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAED128CA63CA000A3C30 /* Units.swift */; };
+		3A9BAED428CA63DE000A3C30 /* Weight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAED328CA63DE000A3C30 /* Weight.swift */; };
 		3AA8763328AD582B0040C613 /* EmbedHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8763228AD582B0040C613 /* EmbedHeaderCell.swift */; };
 		3AA8763528B107810040C613 /* EmbedParameterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AA8763428B107810040C613 /* EmbedParameterTableViewCell.swift */; };
 		3AD14B9B28A410BF00D20E09 /* EmbedImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD14B9A28A410BF00D20E09 /* EmbedImageTableViewCell.swift */; };
@@ -48,6 +53,11 @@
 /* Begin PBXFileReference section */
 		2CAF89AB413D024A0B3F4CD0 /* Pods_SpaceX_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpaceX_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		3A9BAECA28CA5B3C000A3C30 /* MainVC+UIPageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+UIPageViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		3A9BAECC28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainVC+PageViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		3A9BAECF28CA5BCA000A3C30 /* Alertable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alertable.swift; sourceTree = "<group>"; };
+		3A9BAED128CA63CA000A3C30 /* Units.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Units.swift; sourceTree = "<group>"; };
+		3A9BAED328CA63DE000A3C30 /* Weight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weight.swift; sourceTree = "<group>"; };
 		3AA8763228AD582B0040C613 /* EmbedHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedHeaderCell.swift; sourceTree = "<group>"; };
 		3AA8763428B107810040C613 /* EmbedParameterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedParameterTableViewCell.swift; sourceTree = "<group>"; };
 		3AD14B9A28A410BF00D20E09 /* EmbedImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedImageTableViewCell.swift; sourceTree = "<group>"; };
@@ -103,6 +113,7 @@
 		3A9BAEC528C66EA4000A3C30 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				3A9BAECE28CA5BBA000A3C30 /* Model */,
 				3A9BAEC628C66EB9000A3C30 /* Runtime */,
 			);
 			path = Helpers;
@@ -121,6 +132,16 @@
 			children = (
 				3ADA14CE28BD234A003E273F /* StartingViewModel.swift */,
 				3AE65054289D93F800D8D90B /* StartingResponseElement.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3A9BAECE28CA5BBA000A3C30 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3A9BAECF28CA5BCA000A3C30 /* Alertable.swift */,
+				3A9BAED128CA63CA000A3C30 /* Units.swift */,
+				3A9BAED328CA63DE000A3C30 /* Weight.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -153,13 +174,6 @@
 				3ADA14C528B7D1F7003E273F /* SettingViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		3ADA14CD28BD2303003E273F /* ModelStarting */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ModelStarting;
 			sourceTree = "<group>";
 		};
 		3AE6501F289AD8E800D8D90B = {
@@ -202,27 +216,28 @@
 		3AE65041289AF6BD00D8D90B /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				3ADA14CD28BD2303003E273F /* ModelStarting */,
-				3AE65042289AF6CB00D8D90B /* ModelRocket */,
+				3AE65042289AF6CB00D8D90B /* Model */,
 				3AE65044289AF6DF00D8D90B /* View */,
 				3AE65043289AF6D500D8D90B /* Controller */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
 		};
-		3AE65042289AF6CB00D8D90B /* ModelRocket */ = {
+		3AE65042289AF6CB00D8D90B /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3AE6503F289ADDA000D8D90B /* RocketResponseElement.swift */,
 				3AE65045289AF74D00D8D90B /* MainViewModel.swift */,
 			);
-			path = ModelRocket;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3AE65043289AF6D500D8D90B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				3AE6502F289AD8E800D8D90B /* MainViewController.swift */,
+				3A9BAECA28CA5B3C000A3C30 /* MainVC+UIPageViewControllerDelegate.swift */,
+				3A9BAECC28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -443,14 +458,18 @@
 			files = (
 				3AE6506128A1876C00D8D90B /* StartingTableViewCell.swift in Sources */,
 				3ADA14B528B26819003E273F /* EmbedSettingButtonCell.swift in Sources */,
+				3A9BAECB28CA5B3D000A3C30 /* MainVC+UIPageViewControllerDelegate.swift in Sources */,
+				3A9BAED228CA63CA000A3C30 /* Units.swift in Sources */,
 				3AE65053289D8AC200D8D90B /* EmbedViewController.swift in Sources */,
 				3ADA14CA28B92EBC003E273F /* String.swift in Sources */,
 				3AE65055289D93F800D8D90B /* StartingResponseElement.swift in Sources */,
 				3AE6504F289D882200D8D90B /* UIViewController.swift in Sources */,
+				3A9BAECD28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift in Sources */,
 				3AA8763528B107810040C613 /* EmbedParameterTableViewCell.swift in Sources */,
 				3ADA14BA28B3E5E9003E273F /* EmbedVC+UITableView.swift in Sources */,
 				3AE65046289AF74D00D8D90B /* MainViewModel.swift in Sources */,
 				3ADA14C628B7D1F7003E273F /* SettingViewController.swift in Sources */,
+				3A9BAED028CA5BCA000A3C30 /* Alertable.swift in Sources */,
 				3AE65030289AD8E800D8D90B /* MainViewController.swift in Sources */,
 				3AA8763328AD582B0040C613 /* EmbedHeaderCell.swift in Sources */,
 				3AE65040289ADDA000D8D90B /* RocketResponseElement.swift in Sources */,
@@ -472,6 +491,7 @@
 				3AE6505D28A184BA00D8D90B /* StartingViewController.swift in Sources */,
 				3AD14B9B28A410BF00D20E09 /* EmbedImageTableViewCell.swift in Sources */,
 				3AE6502E289AD8E800D8D90B /* SceneDelegate.swift in Sources */,
+				3A9BAED428CA63DE000A3C30 /* Weight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

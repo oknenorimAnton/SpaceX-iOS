@@ -22,7 +22,6 @@ class EmbedStartingButtonCell: UITableViewCell {
         button.titleLabel?.font = UIFont.LabGrotesque().Bold(size: 16)
         button.backgroundColor = UIColor(red: 0.129, green: 0.129, blue: 0.129, alpha: 1)
         button.layer.cornerRadius = 10
-        
         return button
     }()
     
@@ -32,7 +31,7 @@ class EmbedStartingButtonCell: UITableViewCell {
         staringButton.setTitle(title, for: .normal)
     }
     
-    func setupLayout() {
+    private func setupLayout() {
         
         addSubview(staringButton)
         

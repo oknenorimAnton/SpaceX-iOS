@@ -16,7 +16,6 @@ protocol PageViewControllerDelegate: AnyObject {
 
 class PageViewController: UIPageViewController {
     
-    
     var rocketResponseElement: [RocketResponseElement]? {
         didSet{
             setViewControllers([vcs[0]], direction: .forward, animated: false, completion: nil)

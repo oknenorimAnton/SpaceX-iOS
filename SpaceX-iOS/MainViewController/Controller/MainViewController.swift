@@ -10,7 +10,7 @@ import Combine
 import SnapKit
 //здесь работаем с вью
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Alertable {
     
     let viewModel = MainViewModel()
     var currentRocketIndex = 0
@@ -45,10 +45,8 @@ class MainViewController: UIViewController {
         }.store(in: &viewModel.cancellables)
         
         viewModel.$error.sink { [weak self] value in
-            guard let _ = self, let value = value else {return}// проверяем что ошибка не нил. иначе по дефолту будет выводить ошибку т.к. в мейнвьюмодель еррор = нил
-            
-            print(value)
-            
+            guard let self = self, let value = value else {return}// проверяем что ошибка не нил. иначе по дефолту будет выводить ошибку т.к. в мейнвьюмодель еррор = нил
+            self.showError(with: value)
         }.store(in: &viewModel.cancellables)
     }
     
@@ -68,6 +66,7 @@ class MainViewController: UIViewController {
     func setupContainerView() {
         
         view.addSubview(containerView)
+        
         containerView.snp.makeConstraints { make in
             make.top.equalToSuperview()
             make.left.equalToSuperview()
@@ -85,38 +84,3 @@ class MainViewController: UIViewController {
     }
 }
 
-// внутренний делегат для передачи страниц
-extension MainViewController: UIPageViewControllerDelegate {
-    
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-        
-        if let currentViewController = pageViewController.viewControllers![0] as? EmbedViewController {
-            barView.selectedPage = currentViewController.index
-            self.currentRocketIndex = currentViewController.index
-        }
-    }
-}
-
-// подсчет кол-ва страниц в пейдж
-extension MainViewController: PageViewControllerDelegate {
-    
-    func setPagesIndicatorCount(_ count: Int) {
-        barView.countPages = count
-    }
-    
-    func settingsButtonTapped() {
-        
-        let vc = UINavigationController(rootViewController: SettingViewController())
-        vc.modalPresentationStyle = .formSheet
-        vc.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        present(vc, animated: true)
-    }
-    
-    func startingsButtonTapped(with title: String) {
-        guard let rocketId = self.viewModel.rocketResponseElement[self.currentRocketIndex].id else { return }
-        let vc = StartingViewController(rocketId: rocketId, title: title)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
-    
-
-}

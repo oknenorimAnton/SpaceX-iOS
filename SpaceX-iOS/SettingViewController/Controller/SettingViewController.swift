@@ -92,26 +92,11 @@ class SettingViewController: UIViewController {
         
         let setting = AppSettings.shared
         
-        switch setting.height {
-        case .m: heightSegmentedControl.selectedSegmentIndex = 0
-        case .ft: heightSegmentedControl.selectedSegmentIndex = 1
-        }
-        
-        switch setting.diameter {
-        case .m: diameterSegmentedControl.selectedSegmentIndex = 0
-        case .ft: diameterSegmentedControl.selectedSegmentIndex = 1
-        }
-        
-        switch setting.mass {
-        case .kg: massSegmentedControl.selectedSegmentIndex = 0
-        case .lb: massSegmentedControl.selectedSegmentIndex = 1
-        }
-        
-        switch setting.payload {
-        case .kg: payloadSegmentedControl.selectedSegmentIndex = 0
-        case .lb: payloadSegmentedControl.selectedSegmentIndex = 1
-        }
-        
+        heightSegmentedControl.selectedSegmentIndex = setting.height.index
+        diameterSegmentedControl.selectedSegmentIndex = setting.diameter.index
+        massSegmentedControl.selectedSegmentIndex = setting.mass.index
+        payloadSegmentedControl.selectedSegmentIndex = setting.payload.index
+    
     }
     
     private func setupLayout() {
@@ -183,37 +168,12 @@ class SettingViewController: UIViewController {
     }
     
     @objc func segmentedValueChanged(_ sender: UISegmentedControl) {
-        
-        if sender == heightSegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                AppSettings.shared.height = .m
-            } else if sender.selectedSegmentIndex == 1 {
-                AppSettings.shared.height = .ft
-            }
-        }
-        
-        if sender == diameterSegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                AppSettings.shared.diameter = .m
-            } else if sender.selectedSegmentIndex == 1 {
-                AppSettings.shared.diameter = .ft
-            }
-        }
-        
-        if sender == massSegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                AppSettings.shared.mass = .kg
-            } else if sender.selectedSegmentIndex == 1 {
-                AppSettings.shared.mass = .lb
-            }
-        }
-        
-        if sender == payloadSegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                AppSettings.shared.payload = .kg
-            } else if sender.selectedSegmentIndex == 1 {
-                AppSettings.shared.payload = .lb
-            }
+        switch sender {
+        case heightSegmentedControl: AppSettings.shared.height = Units(index: sender.selectedSegmentIndex)
+        case diameterSegmentedControl: AppSettings.shared.diameter = Units(index: sender.selectedSegmentIndex)
+        case massSegmentedControl: AppSettings.shared.mass = Weight(index: sender.selectedSegmentIndex)
+        case payloadSegmentedControl: AppSettings.shared.payload = Weight(index: sender.selectedSegmentIndex)
+        default: break
         }
     }
     

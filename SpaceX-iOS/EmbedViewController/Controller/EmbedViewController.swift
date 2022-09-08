@@ -155,7 +155,7 @@ extension EmbedViewController {
         }
         
         if let costPerLaunch = element.costPerLaunch {
-            sections.append(.titleWithDescription("Стоимость запуска", String(costPerLaunch)))
+            sections.append(.titleWithDescription("Стоимость запуска", "\(String(costPerLaunch))$"))
         }
         
         sections.append(.header("ПЕРВАЯ СТУПЕНЬ"))

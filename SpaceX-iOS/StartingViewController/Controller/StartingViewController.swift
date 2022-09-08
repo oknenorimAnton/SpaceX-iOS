@@ -2,14 +2,13 @@ import UIKit
 import SnapKit
 import Combine
 
-class StartingViewController: UIViewController {
+class StartingViewController: UIViewController, Alertable {
     
     let rocketId: String
     let customTitle: String
     var launches: [LaunchData] = []
     let viewModel = StartingViewModel()
     var bag = Set<AnyCancellable>()
-    
     
     lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
@@ -48,7 +47,7 @@ class StartingViewController: UIViewController {
             .sink { [weak self] newValue in
                 guard let self = self, let newValue = newValue else {return}
                 self.activityIndicator.stopAnimating()
-                print("Error", newValue)
+                self.showError(with: newValue)
             }.store(in: &bag)
     }
     
@@ -59,8 +58,9 @@ class StartingViewController: UIViewController {
         bindViewModel()
         viewModel.fetchStartingData()
         title = customTitle
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.LabGrotesque().Bold(size: 20)!,
+                                                                   NSAttributedString.Key.foregroundColor: UIColor.white]
     }
-    
     
     private func setupLayout() {
         
@@ -93,6 +93,4 @@ class StartingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-
 
