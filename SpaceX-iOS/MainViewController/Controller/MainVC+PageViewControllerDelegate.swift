@@ -1,13 +1,5 @@
-//
-//  MainVC+PageViewControllerDelegate.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 08.09.2022.
-//
-
 import UIKit
 
-// подсчет кол-ва страниц в пейдж
 extension MainViewController: PageViewControllerDelegate {
     
     func setPagesIndicatorCount(_ count: Int) {
@@ -26,6 +18,4 @@ extension MainViewController: PageViewControllerDelegate {
         let vc = StartingViewController(rocketId: rocketId, title: title)
         self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
 }

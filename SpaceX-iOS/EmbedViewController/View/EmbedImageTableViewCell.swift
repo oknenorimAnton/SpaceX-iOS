@@ -1,10 +1,3 @@
-//
-//  EmbedViewCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 10.08.2022.
-//
-
 import UIKit
 import SnapKit
 

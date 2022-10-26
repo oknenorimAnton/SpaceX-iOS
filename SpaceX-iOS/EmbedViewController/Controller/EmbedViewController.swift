@@ -1,10 +1,3 @@
-//
-//  EmbedViewController.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 05.08.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -13,7 +6,6 @@ protocol EmbedViewControllerDelegate: AnyObject {
     func startingsButtonTapped(with title: String)
 }
 
-//создание встроенного контроллера 
 class EmbedViewController: UIViewController {
     
     let index: Int
@@ -21,9 +13,9 @@ class EmbedViewController: UIViewController {
     let image: UIImage
     weak var delegate: EmbedViewControllerDelegate?
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
-        tv.separatorStyle = .none //разделитель выкл
+        tv.separatorStyle = .none
         tv.register(EmbedImageTableViewCell.self, forCellReuseIdentifier: EmbedImageTableViewCell.identifier)
         tv.register(EmbedTitleWithDescriptionCell.self, forCellReuseIdentifier: EmbedTitleWithDescriptionCell.identifier)
         tv.register(EmbedHeaderCell.self, forCellReuseIdentifier: EmbedHeaderCell.identifier)
@@ -32,8 +24,8 @@ class EmbedViewController: UIViewController {
         tv.register(EmbedStartingButtonCell.self, forCellReuseIdentifier: EmbedStartingButtonCell.identifier)
         tv.delegate = self
         tv.dataSource = self
-        tv.rowHeight = UITableView.automaticDimension //авторасчет размера ячейки
-        tv.contentInsetAdjustmentBehavior = .never //убирает верхний отсуп тейбл вью
+        tv.rowHeight = UITableView.automaticDimension
+        tv.contentInsetAdjustmentBehavior = .never
         tv.showsVerticalScrollIndicator = false
         tv.backgroundColor = .black
         return tv
@@ -54,7 +46,6 @@ class EmbedViewController: UIViewController {
         case space(CGFloat)
         case startingButton(String)
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,12 +92,9 @@ extension EmbedViewController {
     
     func createDataSource() -> [Section] {
         let setting = AppSettings.shared
-        
         var sections = [Section]()
         sections.append(.image(image))
-        
         sections.append(.settingButton(element.name!))
-        
         sections.append(.space(32))
         
         var height: (String, Double) {

@@ -38,6 +38,7 @@ extension EmbedViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = tableView.dequeueReusableCell(withIdentifier: EmbedParameterTableViewCell.identifier, for: indexPath) as! EmbedParameterTableViewCell
             cell.setup(items: items)
             return cell
+            
         case .header(let title):
             let cell = tableView.dequeueReusableCell(withIdentifier: EmbedHeaderCell.identifier, for: indexPath) as! EmbedHeaderCell
             cell.setup(title: title)

@@ -1,4 +1,3 @@
-
 import UIKit
 import SnapKit
 
@@ -30,7 +29,6 @@ class EmbedTitleWithDescriptionCell: UITableViewCell {
     }
     
     func setupLayout() {
-        
         addSubview(nameLabel)
         addSubview(descriptionLabel)
         

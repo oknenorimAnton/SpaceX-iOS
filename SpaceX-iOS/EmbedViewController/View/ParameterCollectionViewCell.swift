@@ -1,10 +1,3 @@
-//
-//  ParameterCollectionViewCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 20.08.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -35,9 +28,7 @@ class ParameterCollectionViewCell: UICollectionViewCell {
         descriptionLabel.text = item.0
     }
     
-    
     func setupLayout() {
-        
         addSubview(parameterLabel)
         addSubview(descriptionLabel)
         
@@ -55,7 +46,6 @@ class ParameterCollectionViewCell: UICollectionViewCell {
             make.height.equalTo(20)
         }
     }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

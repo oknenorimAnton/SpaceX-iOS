@@ -15,6 +15,3 @@ extension StartingViewController: UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 }
-
-
-//UINavigationController().navigationBar.isTranslucent = false // прозрачность

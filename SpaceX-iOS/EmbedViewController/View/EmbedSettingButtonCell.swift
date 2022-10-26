@@ -1,17 +1,9 @@
-//
-//  EmbedButtonCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 21.08.2022.
-//
-
 import UIKit
 import SnapKit
 
 protocol EmbedSettingButtonCellDelegate: AnyObject {
     func settingsButtonTapped()
 }
-
 
 class EmbedSettingButtonCell: UITableViewCell {
     
@@ -36,11 +28,10 @@ class EmbedSettingButtonCell: UITableViewCell {
     func setup(title: String) {
         nameLabel.text = title
     }
-
+    
     weak var delegate: EmbedSettingButtonCellDelegate?
     
     func setupLayout() {
-        
         addSubview(nameLabel)
         addSubview(settingButton)
         
@@ -59,7 +50,6 @@ class EmbedSettingButtonCell: UITableViewCell {
         }
     }
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.isUserInteractionEnabled = true
@@ -67,12 +57,10 @@ class EmbedSettingButtonCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         settingButton.addTarget(self, action: #selector(settingButtonTapped), for: .touchUpInside)
-        
     }
     
     @objc func settingButtonTapped(sender: UIButton) {
         delegate?.settingsButtonTapped()
-       
     }
     
     required init?(coder: NSCoder) {

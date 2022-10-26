@@ -1,10 +1,3 @@
-//
-//  EmbedParameterTableViewCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 20.08.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -28,7 +21,7 @@ class EmbedParameterTableViewCell: UITableViewCell {
         return collectionView
     }()
     
-    var items: [(String, String)] = [] {
+    private var items: [(String, String)] = [] {
         didSet{
             parameterCollectionView.reloadData()
         }
@@ -40,7 +33,6 @@ class EmbedParameterTableViewCell: UITableViewCell {
     
     func setupLayout() {
         contentView.addSubview(parameterCollectionView)
-        
         parameterCollectionView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }

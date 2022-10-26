@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 class StartingViewModel: ObservableObject {
-
+    
     var cansellables: Set<AnyCancellable> = []
     
     @Published var launchData = [LaunchData]()

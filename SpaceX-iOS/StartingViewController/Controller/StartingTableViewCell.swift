@@ -1,28 +1,7 @@
-//
-//  TableViewCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 08.08.2022.
-//
-
 import UIKit
 import SnapKit
 
 class StartingTableViewCell: UITableViewCell {
-    
-    //    var success = false {
-    //        didSet {
-    //
-    //
-    //        }
-    //    }
-    
-    
-    //    var dataSource = [Section]() {
-    //            didSet {
-    //                tableView.reloadData()
-    //            }
-    //        }
     
     static var identifier: String {
         String(describing: self)
@@ -69,7 +48,6 @@ class StartingTableViewCell: UITableViewCell {
         viewCell.addSubview(dateLabel)
         viewCell.addSubview(imageStart)
         
-        
         viewCell.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(8)
             make.bottom.equalToSuperview().offset(-8)
@@ -108,6 +86,5 @@ class StartingTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 }
 

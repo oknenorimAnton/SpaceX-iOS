@@ -1,18 +1,10 @@
-//
-//  PageViewController.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 05.08.2022.
-//
-
 import UIKit
 
 protocol PageViewControllerDelegate: AnyObject {
-    func setPagesIndicatorCount(_ count: Int) // передали кол-во страниц
+    func setPagesIndicatorCount(_ count: Int)
     func settingsButtonTapped()
     func startingsButtonTapped(with title: String)
 }
-
 
 class PageViewController: UIPageViewController {
     
@@ -25,7 +17,7 @@ class PageViewController: UIPageViewController {
         }
     }
     
-    lazy var vcs: [EmbedViewController] =  {
+    private lazy var vcs: [EmbedViewController] =  {
         var result: [EmbedViewController] = []
         guard let rocketResponseElement = rocketResponseElement else {return []}
         
@@ -47,7 +39,7 @@ class PageViewController: UIPageViewController {
     
     weak var customDelegate: PageViewControllerDelegate?
     
-    let  images: [UIImage] =  [
+    let images: [UIImage] =  [
         UIImage(named: "SpaceX1")!,
         UIImage(named: "SpaceX2")!,
         UIImage(named: "SpaceX3")!,
@@ -66,14 +58,12 @@ class PageViewController: UIPageViewController {
     
     private func setupLayout() {
         view.addSubview(activityIndicator)
-        
         activityIndicator.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
     }
     
-    // кастомная инициализация (можно нагуглить) для плавного перелистывания
     init(transitionStyle: UIPageViewController.TransitionStyle, navigationOrientation: UIPageViewController.NavigationOrientation) {
         super.init(transitionStyle: transitionStyle, navigationOrientation: navigationOrientation, options: nil)
     }
@@ -83,9 +73,7 @@ class PageViewController: UIPageViewController {
     }
 }
 
-// обязательные функции расширения PageViewController
 extension PageViewController: UIPageViewControllerDataSource {
-    //контроллер до загрузки
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! EmbedViewController) else { return nil }
         let previousIndex = viewControllerIndex - 1
@@ -93,7 +81,7 @@ extension PageViewController: UIPageViewControllerDataSource {
         guard vcs.count > previousIndex else { return nil }
         return vcs[previousIndex]
     }
-    // контроллер после загрузки
+    
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = vcs.firstIndex(of: viewController as! EmbedViewController) else { return nil }
         let nextIndex = viewControllerIndex + 1

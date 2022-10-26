@@ -1,8 +1,3 @@
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let rocketResponse = try? newJSONDecoder().decode(RocketResponse.self, from: jsonData)
-
 import Foundation
 
 // MARK: - RocketResponseElement
@@ -21,7 +16,7 @@ struct RocketResponseElement: Codable {
     let firstFlight, country, company: String?
     let wikipedia: String?
     let rocketResponseDescription, id: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case height, diameter, mass
         case firstStage = "first_stage"
@@ -55,7 +50,7 @@ struct Engines: Codable {
     let engineLossMax: Int?
     let propellant1, propellant2: String?
     let thrustToWeight: Double?
-
+    
     enum CodingKeys: String, CodingKey {
         case isp
         case thrustSeaLevel = "thrust_sea_level"
@@ -71,7 +66,7 @@ struct Engines: Codable {
 // MARK: - ISP
 struct ISP: Codable {
     let seaLevel, vacuum: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case seaLevel = "sea_level"
         case vacuum
@@ -90,7 +85,7 @@ struct FirstStage: Codable {
     let engines: Int?
     let fuelAmountTons: Double?
     let burnTimeSEC: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case thrustSeaLevel = "thrust_sea_level"
         case thrustVacuum = "thrust_vacuum"
@@ -125,7 +120,7 @@ struct SecondStage: Codable {
     let engines: Int?
     let fuelAmountTons: Double?
     let burnTimeSEC: Int?
-
+    
     enum CodingKeys: String, CodingKey {
         case thrust, payloads, reusable, engines
         case fuelAmountTons = "fuel_amount_tons"
@@ -137,7 +132,7 @@ struct SecondStage: Codable {
 struct Payloads: Codable {
     let compositeFairing: CompositeFairing?
     let option1: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case compositeFairing = "composite_fairing"
         case option1 = "option_1"

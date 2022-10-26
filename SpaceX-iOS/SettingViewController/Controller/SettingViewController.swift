@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 25.08.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -84,19 +77,14 @@ class SettingViewController: UIViewController {
         super.viewDidLoad()
         
         title = "Настройки"
-        
         view.backgroundColor = UIColor(red: 0.071, green: 0.071, blue: 0.071, alpha: 1)
         navigationItem.rightBarButtonItem = closeBarButtonItem
-        
         setupLayout()
-        
         let setting = AppSettings.shared
-        
         heightSegmentedControl.selectedSegmentIndex = setting.height.index
         diameterSegmentedControl.selectedSegmentIndex = setting.diameter.index
         massSegmentedControl.selectedSegmentIndex = setting.mass.index
         payloadSegmentedControl.selectedSegmentIndex = setting.payload.index
-    
     }
     
     private func setupLayout() {
@@ -167,7 +155,7 @@ class SettingViewController: UIViewController {
         }
     }
     
-    @objc func segmentedValueChanged(_ sender: UISegmentedControl) {
+    @objc private func segmentedValueChanged(_ sender: UISegmentedControl) {
         switch sender {
         case heightSegmentedControl: AppSettings.shared.height = Units(index: sender.selectedSegmentIndex)
         case diameterSegmentedControl: AppSettings.shared.diameter = Units(index: sender.selectedSegmentIndex)

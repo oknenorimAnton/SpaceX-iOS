@@ -1,10 +1,3 @@
-//
-//  EmbedStartingButtonViewCellTableViewCell.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 21.08.2022.
-//
-
 import UIKit
 import SnapKit
 
@@ -31,10 +24,8 @@ class EmbedStartingButtonCell: UITableViewCell {
         staringButton.setTitle(title, for: .normal)
     }
     
-    private func setupLayout() {
-        
+    func setupLayout() {
         addSubview(staringButton)
-        
         staringButton.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(20)
             make.left.equalToSuperview().offset(32)

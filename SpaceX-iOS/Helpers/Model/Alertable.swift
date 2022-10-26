@@ -1,10 +1,3 @@
-//
-//  Alertable.swift
-//  SpaceX-iOS
-//
-//  Created by Антон on 08.09.2022.
-//
-
 import UIKit
 
 protocol Alertable where Self: UIViewController {

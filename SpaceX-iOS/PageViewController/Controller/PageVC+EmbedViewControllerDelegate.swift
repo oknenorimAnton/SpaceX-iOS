@@ -9,5 +9,4 @@ extension PageViewController: EmbedViewControllerDelegate {
     func startingsButtonTapped(with title: String) {
         customDelegate?.startingsButtonTapped(with: title)
     }
-    
 }

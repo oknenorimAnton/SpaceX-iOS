@@ -10,19 +10,19 @@ class StartingViewController: UIViewController, Alertable {
     let viewModel = StartingViewModel()
     var bag = Set<AnyCancellable>()
     
-    lazy var tableView: UITableView = {
+    private lazy var tableView: UITableView = {
         let tv = UITableView.init(frame: CGRect.zero, style: .plain)
-        tv.separatorStyle = .none //разделитель выкл
+        tv.separatorStyle = .none
         tv.register(StartingTableViewCell.self, forCellReuseIdentifier: StartingTableViewCell.identifier)
         tv.delegate = self
         tv.dataSource = self
-        tv.rowHeight = UITableView.automaticDimension //авторасчет размера ячейки
+        tv.rowHeight = UITableView.automaticDimension
         tv.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 32))
         tv.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         return tv
     }()
     
-    var activityIndicator: UIActivityIndicatorView = {
+    private var activityIndicator: UIActivityIndicatorView = {
         let ai = UIActivityIndicatorView()
         ai.style = .large
         ai.startAnimating()
@@ -88,7 +88,7 @@ class StartingViewController: UIViewController, Alertable {
         self.customTitle = title
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
