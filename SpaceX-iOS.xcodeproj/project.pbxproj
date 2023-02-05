@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E98E4ACAA016F6BC78A2A59 /* Pods_SpaceX_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CAF89AB413D024A0B3F4CD0 /* Pods_SpaceX_iOS.framework */; };
+		3A37C071298FD032007108D0 /* LabGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */; };
 		3A9BAEC828C66EC5000A3C30 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAEC728C66EC5000A3C30 /* AppSettings.swift */; };
 		3A9BAECB28CA5B3D000A3C30 /* MainVC+UIPageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAECA28CA5B3C000A3C30 /* MainVC+UIPageViewControllerDelegate.swift */; };
 		3A9BAECD28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9BAECC28CA5B75000A3C30 /* MainVC+PageViewControllerDelegate.swift */; };
@@ -20,7 +21,6 @@
 		3AD14B9D28A578C900D20E09 /* EmbedTitleWithDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AD14B9C28A578C900D20E09 /* EmbedTitleWithDescriptionCell.swift */; };
 		3ADA14A928B11125003E273F /* ParameterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14A828B11125003E273F /* ParameterCollectionViewCell.swift */; };
 		3ADA14AB28B15923003E273F /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14AA28B15923003E273F /* UIFont.swift */; };
-		3ADA14B228B26005003E273F /* LabGrotesque-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */; };
 		3ADA14B328B26005003E273F /* LabGrotesque-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3ADA14B128B26005003E273F /* LabGrotesque-Regular.ttf */; };
 		3ADA14B528B26819003E273F /* EmbedSettingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B428B26819003E273F /* EmbedSettingButtonCell.swift */; };
 		3ADA14B728B280EE003E273F /* EmbedStartingButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ADA14B628B280ED003E273F /* EmbedStartingButtonCell.swift */; };
@@ -64,7 +64,7 @@
 		3AD14B9C28A578C900D20E09 /* EmbedTitleWithDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedTitleWithDescriptionCell.swift; sourceTree = "<group>"; };
 		3ADA14A828B11125003E273F /* ParameterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCollectionViewCell.swift; sourceTree = "<group>"; };
 		3ADA14AA28B15923003E273F /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "LabGrotesque-Bold.ttf"; path = "../../../../Downloads/font/LabGrotesque-Bold.ttf"; sourceTree = "<group>"; };
+		3ADA14B028B26005003E273F /* LabGrotesque-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Bold.ttf"; sourceTree = "<group>"; };
 		3ADA14B128B26005003E273F /* LabGrotesque-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LabGrotesque-Regular.ttf"; sourceTree = "<group>"; };
 		3ADA14B428B26819003E273F /* EmbedSettingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedSettingButtonCell.swift; sourceTree = "<group>"; };
 		3ADA14B628B280ED003E273F /* EmbedStartingButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmbedStartingButtonCell.swift; sourceTree = "<group>"; };
@@ -401,8 +401,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AE65038289AD8EA00D8D90B /* LaunchScreen.storyboard in Resources */,
+				3A37C071298FD032007108D0 /* LabGrotesque-Bold.ttf in Resources */,
 				3ADA14B328B26005003E273F /* LabGrotesque-Regular.ttf in Resources */,
-				3ADA14B228B26005003E273F /* LabGrotesque-Bold.ttf in Resources */,
 				3AE65035289AD8EA00D8D90B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
